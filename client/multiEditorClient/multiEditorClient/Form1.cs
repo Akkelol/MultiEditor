@@ -24,10 +24,31 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Bounds = Screen.PrimaryScreen.Bounds;
+            Form Form2 = new Form2();
+            Form2.Show();
+            textBox1.Hide();
+            textBox2.Hide();
+            label1.Hide();
+            label2.Hide();
+            label3.Show();
+            button1.Hide();
+            button2.Show();
+        }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Show();
+            textBox2.Show();
+            label1.Show();
+            label2.Show();
+            label3.Hide();
+            button1.Show();
+            button2.Hide();
         }
     }
 }
