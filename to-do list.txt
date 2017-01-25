@@ -1,0 +1,41 @@
+server settings
+	choose when you upload to your friend / constant upload?
+	quicksaves every couple of minutes / on command? should be pretty prioritized
+	request to bounce the changes to the reciever/s every x seconds / minutes
+	
+
+
+server side stuffs
+	some sort of login?
+
+client side settings C# ALL THE WAY
+	beat snap divisor
+	exporting as .osu/.osz
+	creating a diff
+	client side AR?
+	a GUI that looks enough like osu
+
+
+map settings
+	link settings to core? aka reload or update when changed to all connected?
+
+	settings
+		AR? find the AR graph and implement it
+		set OD or variable?
+		circle size?
+		hp?
+
+core
+	importing a song / from osu?
+	constant reloading of the song? might have to use something else than .txt files
+	beats per minute, aka (200)/60=x notes per second
+	split every second of a song in 000-999
+	find how long a song is
+
+things to concider later
+
+listen server? dedicated? separate client and server? 
+background? Later still!
+hitsounds? later!
+skinnable? eh, that's for later
+bookmarks, timing points and inheirited points
