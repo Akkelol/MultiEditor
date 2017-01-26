@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
+
         string opendPath;
         string fileContent;
         bool fileSelected = false;
@@ -24,22 +25,27 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.Bounds = Screen.PrimaryScreen.Bounds;
+            this.Bounds = Screen.PrimaryScreen.Bounds;                                     //gets size of screen and adjusts the form to fit
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+        void button1_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();                           //opens the file browser 
+            fbd.Description = "Select your osu! folder, usually located in .appdata";      //sets fbd description
+            if (fbd.ShowDialog() == DialogResult.OK);                                      //checks if the user clicked OK or exited out
+            opendPath = fbd.SelectedPath;                                                  //stores folder path as string opendPath
 
-
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
-                    MessageBox.Show("Shredding " + fbd.SelectedPath + " folder");
-                }
-            }
         }
-	  }
+        private void openSongFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();                                                             //allows the user to quit the program
+        }
+
+
+    }
 }
