@@ -15,7 +15,12 @@ namespace WindowsFormsApplication1
     {
 
         string opendPath;
-        string fileContent;
+        string songsDir;
+        string skinDir;
+        string songDirName;
+        string skinDirName;
+        string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        string osucfgFile;
         bool fileSelected = false;
 
         public Form2()
@@ -35,11 +40,25 @@ namespace WindowsFormsApplication1
             fbd.Description = "Select your osu! folder, usually located in .appdata";      //sets fbd description
             if (fbd.ShowDialog() == DialogResult.OK);                                      //checks if the user clicked OK or exited out
             opendPath = fbd.SelectedPath;                                                  //stores folder path as string opendPath
+            //time to declare some paths
+            osucfgFile = opendPath + "/" + "osu!." + userName + ".txt";                    //get song folder and skin name from text file
+            /*int startLine = 1;
+            int lineCount = 10;
+            var fileLines = File.ReadAllLines()
+                            .Skip((startLine - 1))
+                            .Take(lineCount);
+            */songsDir = "pull a line from the array, stupid";
+            skinDir = "pull a line from the array, idiot";
+            // to get a specific folder or file inside the osuDir use @"opendPath"+ @"\Archive\" where Archive is the file or folder you need
+            //like this:
+            //pictureBox1.ImageLocation = opendPath + "/Skins/Mashup/approachcircle.png";
+            //if the skin is called Mashup
+            pictureBox1.ImageLocation = opendPath + "/Skins/Mashup/approachcircle.png";
 
         }
         private void openSongFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            System.Diagnostics.Process.Start("explorer.exe", songsDir);
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
