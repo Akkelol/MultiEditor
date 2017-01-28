@@ -41,16 +41,11 @@ namespace WindowsFormsApplication1
             if (fbd.ShowDialog() == DialogResult.OK);                                      //checks if the user clicked OK or exited out
             opendPath = fbd.SelectedPath;                                                  //stores folder path as string opendPath
             //time to declare some paths
-WHY DOES IT ADD /2 IN FRONT OF THE USERNAME ? !? !? this.wasAllGoingSoWell until(this) happened!
-            osucfgFile = opendPath + "\\osu!."+userName + ".cfg";                    //get song folder and skin name from text file
-            /*int startLine = 1;
-            int lineCount = 10;
-            var fileLines = File.ReadAllLines(osucfgFile)
-                            .Skip((startLine - 1))
-                            .Take(lineCount);*/
+            osucfgFile = opendPath + "\\osu!."+userName + ".cfg";                          //get song folder and skin name from text file
+
             MessageBox.Show(osucfgFile);
-            songsDir = "pull a line from the array, stupid";
-            skinDir = "pull a line from the array, idiot";
+            songsDir = "get songs dir, stupid";
+            skinDir = "declare the skinDir, idiot";
             // to get a specific folder or file inside the osuDir use @"opendPath"+ @"\Archive\" where Archive is the file or folder you need
             //like this:
             //pictureBox1.ImageLocation = opendPath + "/Skins/Mashup/approachcircle.png";
