@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         string skinDir;
         string songDirName;
         string skinDirName;
-        string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        string userName = Environment.UserName;
         string osucfgFile;
         bool fileSelected = false;
 
@@ -40,12 +40,24 @@ namespace WindowsFormsApplication1
             fbd.Description = "Select your osu! folder, usually located in .appdata";      //sets fbd description
             if (fbd.ShowDialog() == DialogResult.OK);                                      //checks if the user clicked OK or exited out
             opendPath = fbd.SelectedPath;                                                  //stores folder path as string opendPath
-            //time to declare some paths
             osucfgFile = opendPath + "\\osu!."+userName + ".cfg";                          //get song folder and skin name from text file
+            //time to declare some paths
 
+
+
+            var sectionName = "Skin = ";
+            string[] items =
+                File.ReadLines(osucfgFile)                           //read file lazily 
+                    .SkipWhile(line => line != sectionName)        //search for header
+                    .Skip(1)                                       //skip header
+                    .TakeWhile(line => !string.IsNullOrEmpty(line))//take until next header
+                    .ToArray();
             MessageBox.Show(osucfgFile);
             songsDir = "get songs dir, stupid";
             skinDir = "declare the skinDir, idiot";
+
+
+
             // to get a specific folder or file inside the osuDir use @"opendPath"+ @"\Archive\" where Archive is the file or folder you need
             //like this:
             //pictureBox1.ImageLocation = opendPath + "/Skins/Mashup/approachcircle.png";
